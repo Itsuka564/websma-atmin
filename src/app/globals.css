@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  --brand-blue: #064ea2;
+  --brand-blue-dark: #043875;
+  --brand-yellow: #f3ea08;
+  --brand-yellow-dark: #ded600;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +27,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Animasi teks pengumuman berjalan */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Jeda animasi ketika kursor berada di atas pengumuman */
+.animate-\[marquee_22s_linear_infinite\]:hover {
+  animation-play-state: paused;
 }
