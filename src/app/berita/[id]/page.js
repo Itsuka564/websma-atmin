@@ -4,6 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { beritaData } from "@/data/berita";
 
+export function generateStaticParams() {
+  return beritaData.map((berita) => ({
+    id: berita.id,
+  }));
+}
+
 export default async function DetailBeritaPage({ params }) {
   const { id } = await params;
 
