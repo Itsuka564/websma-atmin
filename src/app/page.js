@@ -3,6 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroCarousel from "@/components/HeroCarousel";
 import { beritaData } from "@/data/berita";
+import { getAllSettings } from "@/lib/settings";
+import { getBeritaPublik } from "@/lib/berita";
+
+export const instant = false;
 
 const statistik = [
   {
@@ -138,15 +142,31 @@ function BeritaKecil({ berita }) {
   );
 }
 
-export default function Home() {
-  const beritaTerbaru = beritaData.slice(0, 3);
+export default async function Home() {
+  const [settings, beritaPublik] = await Promise.all([
+    getAllSettings().catch(() => ({})),
+    getBeritaPublik().catch(() => beritaData),
+  ]);
+
+  const heroSlides = settings.beranda_hero || [];
+  const marquee = settings.beranda_marquee || [
+    "Selamat datang di situs resmi SMA Negeri 1 Purworejo",
+    "Unggul, Berkarakter, Mendunia",
+    "Pantau informasi dan pengumuman sekolah melalui situs ini",
+  ];
+  const sambutan = settings.beranda_sambutan || {};
+  const dataStatistik = settings.beranda_statistik && settings.beranda_statistik.length > 0
+    ? settings.beranda_statistik
+    : statistik;
+
+  const beritaTerbaru = (beritaPublik && beritaPublik.length > 0 ? beritaPublik : beritaData).slice(0, 3);
   const beritaUtama = beritaTerbaru[0];
   const beritaPendukung = beritaTerbaru.slice(1, 3);
 
   return (
     <main className="min-h-screen w-full overflow-hidden bg-white">
-      {/* HERO CAROUSEL - TETAP MENGGUNAKAN KOMPONEN LAMA */}
-      <HeroCarousel />
+      {/* HERO CAROUSEL */}
+      <HeroCarousel customSlides={heroSlides} />
 
       {/* PENGUMUMAN */}
       <section className="flex w-full flex-col overflow-hidden md:flex-row">
@@ -162,17 +182,12 @@ export default function Home() {
 
         <div className="flex min-w-0 flex-1 items-center overflow-hidden bg-[#101D35] py-4 text-white">
           <div className="animate-[marquee_22s_linear_infinite] whitespace-nowrap px-5 text-sm font-medium sm:text-base">
-            <span className="mx-8">
-              Selamat datang di situs resmi SMA Negeri 1 Purworejo
-            </span>
-            <span className="mx-8 text-yellow-400">◆</span>
-            <span className="mx-8">
-              Unggul, Berkarakter, Mendunia
-            </span>
-            <span className="mx-8 text-yellow-400">◆</span>
-            <span className="mx-8">
-              Pantau informasi dan pengumuman sekolah melalui situs ini
-            </span>
+            {marquee.map((teks, idx) => (
+              <span key={idx}>
+                <span className="mx-8">{teks}</span>
+                {idx < marquee.length - 1 && <span className="mx-8 text-yellow-400">◆</span>}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -183,8 +198,8 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[240px] lg:max-w-[280px]">
             <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
               <Image
-                src="/images/kepala-sekolah.jpg"
-                alt="Cahyo Winarno, S.Pd., M.Pd., Kepala SMA Negeri 1 Purworejo"
+                src={sambutan.foto || "/images/kepala-sekolah.jpg"}
+                alt={sambutan.nama || "Kepala SMA Negeri 1 Purworejo"}
                 width={480}
                 height={600}
                 className="aspect-[4/5] w-full object-cover object-top"
@@ -192,11 +207,11 @@ export default function Home() {
             </div>
 
             <h3 className="mt-3 text-center text-base font-extrabold text-[#101D35]">
-              Cahyo Winarno, S.Pd., M.Pd.
+              {sambutan.nama || "Cahyo Winarno, S.Pd., M.Pd."}
             </h3>
 
             <p className="mt-1 text-center text-sm text-slate-500">
-              Kepala SMA Negeri 1 Purworejo
+              {sambutan.jabatan || "Kepala SMA Negeri 1 Purworejo"}
             </p>
           </div>
 
@@ -211,34 +226,34 @@ export default function Home() {
 
             <div className="my-4 h-1.5 w-16 rounded-full bg-yellow-400" />
 
-            <p className="text-sm font-semibold italic text-slate-700">
-              Bismillahirrahmanirrahim. Assalamu’alaikum warahmatullahi
-              wabarakatuh.
-            </p>
+            {sambutan.sapaanAwal && (
+              <p className="text-sm font-semibold italic text-slate-700">
+                {sambutan.sapaanAwal}
+              </p>
+            )}
 
             <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
-              Puji syukur ke hadirat Allah SWT atas rahmat dan karunia-Nya.
-              Website SMA Negeri 1 Purworejo hadir sebagai sarana informasi,
-              literasi, dan kolaborasi bagi seluruh warga sekolah serta
-              masyarakat.
+              {sambutan.paragraf1 ||
+                "Puji syukur ke hadirat Allah SWT atas rahmat dan karunia-Nya. Website SMA Negeri 1 Purworejo hadir sebagai sarana informasi, literasi, dan kolaborasi bagi seluruh warga sekolah serta masyarakat."}
             </p>
 
-            <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
-              Berdiri sejak 2 Agustus 1955, SMA Negeri 1 Purworejo terus
-              berkomitmen mengembangkan ilmu pengetahuan, karakter,
-              kreativitas, dan kepedulian terhadap lingkungan lokal maupun
-              global.
-            </p>
+            {sambutan.paragraf2 && (
+              <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
+                {sambutan.paragraf2}
+              </p>
+            )}
 
-            <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
-              Semoga website ini menjadi media belajar dan berbagi informasi
-              yang bermanfaat bagi peserta didik, alumni, guru, orang tua,
-              serta masyarakat.
-            </p>
+            {sambutan.paragraf3 && (
+              <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
+                {sambutan.paragraf3}
+              </p>
+            )}
 
-            <p className="mt-4 text-sm font-semibold italic text-slate-700">
-              Wassalamu’alaikum warahmatullahi wabarakatuh.
-            </p>
+            {sambutan.sapaanAkhir && (
+              <p className="mt-4 text-sm font-semibold italic text-slate-700">
+                {sambutan.sapaanAkhir}
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -263,16 +278,16 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {statistik.map((item) => (
+            {dataStatistik.map((item, idx) => (
               <div
-                key={item.label}
-                className={`group relative overflow-hidden rounded-lg border border-slate-200 border-t-[5px] ${item.warna} bg-white px-3 py-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:px-5 sm:py-8`}
+                key={item.label || idx}
+                className={`group relative overflow-hidden rounded-lg border border-slate-200 border-t-[5px] ${item.warna || "border-blue-500"} bg-white px-3 py-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:px-5 sm:py-8`}
               >
                 <div className="absolute inset-0 bg-slate-50 opacity-0 transition group-hover:opacity-100" />
 
                 <div className="relative">
                   <p
-                    className={`text-3xl font-black sm:text-4xl lg:text-5xl ${item.angka}`}
+                    className={`text-3xl font-black sm:text-4xl lg:text-5xl ${item.angka || "text-blue-600"}`}
                   >
                     {item.jumlah}
                   </p>

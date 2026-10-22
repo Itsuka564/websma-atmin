@@ -77,3 +77,27 @@ USING (bucket_id = 'uploads');
 CREATE POLICY "Service role dapat mengelola uploads"
 ON storage.objects FOR ALL
 USING (bucket_id = 'uploads' AND (auth.role() = 'service_role' OR auth.role() = 'authenticated'));
+
+
+-- 4. TABEL PENGATURAN SITUS (CMS BERANDA, KEUANGAN, SPMB, INFORMASI)
+CREATE TABLE IF NOT EXISTS public.site_settings (
+    key TEXT PRIMARY KEY,
+    value JSONB NOT NULL,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Aktifkan RLS
+ALTER TABLE public.site_settings ENABLE ROW LEVEL SECURITY;
+
+-- Kebijakan RLS: Siapapun (publik) bisa membaca pengaturan
+CREATE POLICY "Semua orang bisa melihat pengaturan situs" 
+ON public.site_settings 
+FOR SELECT 
+USING (true);
+
+-- Kebijakan RLS: Hanya service role / role admin yang dapat mengubah pengaturan
+CREATE POLICY "Service role bebas mengelola pengaturan situs" 
+ON public.site_settings 
+FOR ALL 
+USING (auth.role() = 'service_role' OR auth.role() = 'authenticated');
+

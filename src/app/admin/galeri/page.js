@@ -248,23 +248,7 @@ export default function AdminGaleriPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-8 text-slate-900 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-8">
-          <p className="mb-2 text-sm font-bold uppercase tracking-widest text-blue-700">
-            Panel Administrator
-          </p>
-
-          <h1 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            Kelola Galeri
-          </h1>
-
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
-            Tambahkan dokumentasi kegiatan, fasilitas, prestasi, dan
-            berbagai aktivitas SMA Negeri 1 Purworejo.
-          </p>
-        </div>
+    <div className="space-y-6">
 
         {/* Notifikasi */}
         {pesan && (
@@ -495,7 +479,6 @@ export default function AdminGaleriPage() {
             </div>
           )}
         </section>
-      </div>
-    </main>
+    </div>
   );
 }

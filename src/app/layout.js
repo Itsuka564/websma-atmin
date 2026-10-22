@@ -1,9 +1,5 @@
-
 import "./globals.css";
-import { Suspense } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AdminFloatingButton from "@/components/AdminFloatingButton";
+import PublicLayoutWrapper from "@/components/PublicLayoutWrapper";
 
 export const metadata = {
   title: "SMA Negeri 1 Purworejo",
@@ -15,19 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <body className="min-h-screen bg-white text-slate-900 antialiased">
-        <Suspense
-          fallback={<div className="h-32" aria-hidden="true" />}
-        >
-          <Navbar />
-        </Suspense>
-
-        {children}
-
-        <Footer />
-
-        <Suspense fallback={null}>
-          <AdminFloatingButton />
-        </Suspense>
+        <PublicLayoutWrapper>{children}</PublicLayoutWrapper>
       </body>
     </html>
   );

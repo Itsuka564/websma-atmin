@@ -1,5 +1,19 @@
+import Link from "next/link";
+import { getSetting } from "@/lib/settings";
 
-export default function KeuanganPage() {
+export const instant = false;
+
+export default async function KeuanganPage() {
+  const data = (await getSetting("keuangan_data")) || {
+    status: "Belum Dirilis",
+    tahun: "2026",
+    judul: "Informasi Keuangan Tahun 2026",
+    deskripsi: "Informasi keuangan untuk tahun 2026 belum dirilis.",
+    fileUrl: "",
+  };
+
+  const isRilis = data.status === "Telah Dirilis";
+
   return (
     <main className="min-h-screen bg-slate-50">
       <section className="bg-[#064ea2] px-6 py-16 text-white">
@@ -13,24 +27,41 @@ export default function KeuanganPage() {
         </div>
       </section>
 
-      <section className="mx-auto flex max-w-4xl flex-col items-center px-6 py-24 text-center">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#f3ea08]/20 text-4xl">
+      <section className="mx-auto flex max-w-4xl flex-col items-center px-6 py-20 text-center">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#f3ea08]/20 text-4xl shadow-sm">
           📄
         </div>
 
-        <h2 className="mt-6 text-2xl font-bold text-[#064ea2]">
-          Informasi Keuangan Tahun 2026
+        <h2 className="mt-6 text-2xl font-bold text-[#064ea2] md:text-3xl">
+          {data.judul}
         </h2>
 
-        <p className="mt-3 max-w-xl leading-7 text-slate-600">
-          Informasi keuangan untuk tahun 2026 belum dirilis. Silakan
-          kunjungi halaman ini kembali secara berkala untuk mendapatkan
-          informasi terbaru.
+        <p className="mt-4 max-w-xl leading-7 text-slate-600 whitespace-pre-line">
+          {data.deskripsi}
         </p>
 
-        <span className="mt-6 rounded-full border border-[#f3ea08] bg-[#f3ea08]/10 px-5 py-2 text-sm font-semibold text-[#064ea2]">
-          Belum Dirilis
-        </span>
+        <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
+          <span
+            className={`rounded-full border px-5 py-2 text-sm font-semibold ${
+              isRilis
+                ? "border-emerald-500 bg-emerald-50 text-emerald-700"
+                : "border-[#f3ea08] bg-[#f3ea08]/10 text-[#064ea2]"
+            }`}
+          >
+            {data.status}
+          </span>
+
+          {isRilis && data.fileUrl && (
+            <Link
+              href={data.fileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full bg-[#064ea2] px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#043875] transition"
+            >
+              Unduh Laporan Keuangan ↗
+            </Link>
+          )}
+        </div>
       </section>
     </main>
   );

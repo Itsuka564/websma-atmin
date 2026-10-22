@@ -327,21 +327,8 @@ export default function AdminBeritaPage() {
   }
 
   return (
-    <main className="admin-login">
+    <div className="space-y-6">
       <div className="berita-admin-container">
-        <header className="berita-admin-header">
-          <div>
-            <p className="berita-admin-label">ADMIN PANEL</p>
-            <h1>Kelola Berita</h1>
-            <p>
-              Tambah, edit, dan hapus berita SMA Negeri 1 Purworejo.
-            </p>
-          </div>
-
-          <Link href="/admin" className="berita-back-link">
-            ← Kembali ke Dashboard
-          </Link>
-        </header>
 
         <section className="berita-form">
           <h2>{editId ? "Edit Berita" : "Tambah Berita"}</h2>
@@ -572,6 +559,6 @@ export default function AdminBeritaPage() {
           )}
         </section>
       </div>
-    </main>
+    </div>
   );
 }

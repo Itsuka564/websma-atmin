@@ -27,28 +27,31 @@ const slides = [
   },
 ];
 
-export default function HeroCarousel() {
+export default function HeroCarousel({ customSlides }) {
+  const currentSlides = customSlides && customSlides.length > 0 ? customSlides : slides;
   const [active, setActive] = useState(0);
 
   function previousSlide() {
     setActive((current) =>
-      current === 0 ? slides.length - 1 : current - 1
+      current === 0 ? currentSlides.length - 1 : current - 1
     );
   }
 
   function nextSlide() {
     setActive((current) =>
-      current === slides.length - 1 ? 0 : current + 1
+      current === currentSlides.length - 1 ? 0 : current + 1
     );
   }
+
+  const activeSlide = currentSlides[active] || currentSlides[0] || slides[0];
 
   return (
     <section className="relative w-full overflow-hidden bg-[#064ea2]">
       <div className="relative h-[350px] w-full sm:h-[450px] lg:h-[580px]">
         <Image
-          key={slides[active].src}
-          src={slides[active].src}
-          alt={slides[active].title}
+          key={activeSlide.src}
+          src={activeSlide.src}
+          alt={activeSlide.title || "Hero Slide"}
           fill
           priority
           sizes="100vw"
@@ -66,11 +69,11 @@ export default function HeroCarousel() {
             </p>
 
             <h1 className="max-w-3xl text-3xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
-              {slides[active].title}
+              {activeSlide.title}
             </h1>
 
             <p className="mt-4 max-w-xl text-sm leading-7 text-slate-200 sm:text-lg">
-              {slides[active].subtitle}
+              {activeSlide.subtitle}
             </p>
           </div>
         </div>
