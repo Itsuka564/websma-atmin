@@ -44,10 +44,11 @@ export async function POST(request) {
     response.headers.set("Cache-Control", "no-store");
 
     return response;
-  } catch {
+  } catch (error) {
+    console.error("Login route error:", error);
     return NextResponse.json(
-      { message: "Permintaan login tidak valid." },
-      { status: 400 }
+      { message: error.message || "Permintaan login tidak valid." },
+      { status: 500 }
     );
   }
 }

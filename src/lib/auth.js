@@ -9,7 +9,7 @@ function getSecret() {
 
   if (!secret || secret.length < 32) {
     throw new Error(
-      "ADMIN_SESSION_SECRET belum diatur dengan benar."
+      "ADMIN_SESSION_SECRET belum diatur (minimal 32 karakter) di Environment Variables Vercel."
     );
   }
 
@@ -23,13 +23,17 @@ function sign(value) {
 }
 
 function safeCompare(a, b) {
+  if (typeof a !== "string" || typeof b !== "string") {
+    return false;
+  }
   const first = Buffer.from(a);
   const second = Buffer.from(b);
 
-  return (
-    first.length === second.length &&
-    timingSafeEqual(first, second)
-  );
+  if (first.length !== second.length) {
+    return false;
+  }
+
+  return timingSafeEqual(first, second);
 }
 
 export function validateAdmin(username, password) {
@@ -37,7 +41,7 @@ export function validateAdmin(username, password) {
   const correctPassword = process.env.ADMIN_PASSWORD;
 
   if (!correctUsername || !correctPassword) {
-    throw new Error("Konfigurasi akun admin belum lengkap.");
+    throw new Error("ADMIN_USERNAME atau ADMIN_PASSWORD belum diisi di Environment Variables Vercel.");
   }
 
   return (
