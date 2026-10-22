@@ -45,3 +45,701 @@ body {
 .animate-\[marquee_22s_linear_infinite\]:hover {
   animation-play-state: paused;
 }
+
+
+.admin-login {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f3f6fb;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 36px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 8%);
+}
+
+.login-brand {
+  margin-bottom: 28px;
+}
+
+.login-logo {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 18px;
+  color: #064ea2;
+  background: #f3ea08;
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+.login-brand p {
+  margin-bottom: 8px;
+  color: #064ea2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.login-brand h1 {
+  margin-bottom: 8px;
+  color: #172033;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.login-brand span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.login-card form {
+  display: grid;
+  gap: 10px;
+}
+
+.login-card label {
+  margin-top: 8px;
+  color: #263449;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  color: #172033;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+}
+
+.login-card input:focus {
+  border-color: #064ea2;
+  box-shadow: 0 0 0 3px rgb(6 78 162 / 12%);
+}
+
+.login-card button {
+  margin-top: 16px;
+  padding: 13px;
+  color: #fff;
+  background: #064ea2;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-card button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.login-error {
+  color: #dc2626;
+  font-size: 13px;
+}
+
+.back-home {
+  display: block;
+  margin-top: 24px;
+  color: #064ea2;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f3f6fb;
+  color: #172033;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #dbe3ef;
+}
+
+.admin-header p {
+  color: #064ea2;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.admin-header h1 {
+  margin: 8px 0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.admin-header span,
+.admin-welcome p {
+  color: #64748b;
+}
+
+.logout-button {
+  padding: 10px 18px;
+  color: #fff;
+  background: #064ea2;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-welcome {
+  margin: 32px 0 24px;
+}
+
+.admin-welcome h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.admin-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.admin-menu-card {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.admin-menu-icon {
+  font-size: 28px;
+}
+
+.admin-menu-card h3 {
+  margin: 16px 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.admin-menu-card p {
+  min-height: 42px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.admin-menu-status {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 5px 9px;
+  background: #fff9bd;
+  border-radius: 6px;
+  color: #064ea2;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-back-home {
+  display: inline-block;
+  margin-top: 30px;
+  color: #064ea2;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .admin-dashboard {
+    padding: 24px 16px;
+  }
+
+  .admin-header h1 {
+    font-size: 24px;
+  }
+}
+
+.berita-form {
+  display: grid;
+  gap: 10px;
+  max-width: 800px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.berita-form label {
+  margin-top: 8px;
+  color: #263449;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.berita-form input,
+.berita-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  color: #172033;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.berita-form input:focus,
+.berita-form textarea:focus {
+  border-color: #064ea2;
+  outline: 2px solid rgb(6 78 162 / 12%);
+}
+
+.berita-form textarea {
+  resize: vertical;
+}
+
+.berita-form button {
+  margin-top: 12px;
+  padding: 13px;
+  color: #fff;
+  background: #064ea2;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.berita-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.berita-success {
+  color: #15803d;
+  font-size: 14px;
+}
+
+.berita-list {
+  margin-top: 36px;
+}
+
+.berita-list h2 {
+  margin-bottom: 18px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.berita-item {
+  margin-bottom: 12px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.berita-item h3 {
+  font-weight: 700;
+}
+
+.berita-item p {
+  margin-top: 8px;
+  color: #64748b;
+  overflow-wrap: anywhere;
+}
+
+
+/* ===== PERBAIKAN TAMPILAN ADMIN BERITA ===== */
+
+.berita-admin-container {
+  width: min(100% - 32px, 1000px);
+  margin: 0 auto;
+  padding: 32px 0 48px;
+  color: #1f2937;
+}
+
+.berita-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  color: #1f2937;
+}
+
+.berita-admin-header h1,
+.berita-admin-header p,
+.berita-form h2,
+.berita-list h2,
+.berita-item h3,
+.berita-item p {
+  color: #1f2937;
+}
+
+.berita-admin-header h1 {
+  margin: 8px 0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.berita-admin-header p {
+  margin: 6px 0;
+}
+
+.berita-admin-label {
+  color: #064ea2 !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.berita-back-link {
+  color: #064ea2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.berita-back-link:hover {
+  text-decoration: underline;
+}
+
+.berita-form,
+.berita-list {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #1f2937;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 5%);
+}
+
+.berita-form h2,
+.berita-list h2 {
+  margin: 0 0 20px;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.berita-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.berita-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.berita-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.berita-form input,
+.berita-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #111827;
+  font: inherit;
+  font-weight: 400;
+  outline: none;
+}
+
+.berita-form input {
+  min-height: 44px;
+}
+
+.berita-form textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.berita-form input::placeholder,
+.berita-form textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.berita-form input:focus,
+.berita-form textarea:focus {
+  border-color: #064ea2;
+  box-shadow: 0 0 0 3px rgb(6 78 162 / 12%);
+}
+
+.berita-form button,
+.berita-list-header button {
+  width: fit-content;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #064ea2;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.berita-form button:disabled,
+.berita-list-header button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.berita-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.berita-list-header h2 {
+  margin-bottom: 0;
+}
+
+.berita-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.berita-item {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  overflow-wrap: anywhere;
+}
+
+.berita-item h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.berita-item p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.berita-message {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.berita-error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.berita-success {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+@media (max-width: 600px) {
+  .berita-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .berita-form,
+  .berita-list {
+    padding: 18px;
+  }
+
+  .berita-admin-header h1 {
+    font-size: 25px;
+  }
+}
+
+
+/* Paksa warna teks halaman admin berita */
+.berita-admin-container,
+.berita-admin-container h1,
+.berita-admin-container h2,
+.berita-admin-container h3,
+.berita-admin-container p,
+.berita-admin-container label,
+.berita-admin-container a,
+.berita-admin-container span {
+  color: #1f2937 !important;
+}
+
+.berita-admin-container .berita-admin-label {
+  color: #064ea2 !important;
+}
+
+.berita-admin-container input,
+.berita-admin-container textarea {
+  color: #111827 !important;
+  background: #ffffff !important;
+  -webkit-text-fill-color: #111827 !important;
+}
+
+.berita-admin-container input::placeholder,
+.berita-admin-container textarea::placeholder {
+  color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+}
+
+.berita-admin-container button {
+  color: #ffffff !important;
+}
+
+.berita-admin-container .berita-error {
+  color: #b91c1c !important;
+}
+
+.berita-admin-container .berita-success {
+  color: #166534 !important;
+}
+
+/* Tombol aksi admin berita */
+.berita-form-actions,
+.berita-item-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.berita-form .berita-cancel-button {
+  background: #e5e7eb;
+  color: #1f2937 !important;
+}
+
+.berita-item-actions {
+  margin-top: 14px;
+}
+
+.berita-item-actions button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 7px;
+  color: #ffffff !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.berita-item-actions .berita-edit-button {
+  background: #064ea2;
+}
+
+.berita-item-actions .berita-delete-button {
+  background: #dc2626;
+}
+
+.berita-item-actions {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 16px !important;
+}
+
+.berita-item-actions button {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 10px 18px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+.berita-item-actions .berita-edit-button {
+  background-color: #064ea2 !important;
+}
+
+.berita-item-actions .berita-delete-button {
+  background-color: #dc2626 !important;
+}
+
+
+.berita-upload-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.berita-upload-area > label {
+  font-weight: 600;
+}
+
+.berita-upload-area input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed #9ca3af;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.berita-upload-area small {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.berita-image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.berita-image-preview p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.berita-image-preview img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  max-height: 240px;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f3f4f6;
+}
+
+.berita-upload-area button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.berita-item-thumbnail {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: 140px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #f3f4f6;
+}
+

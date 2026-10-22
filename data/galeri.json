@@ -1,0 +1,62 @@
+[
+  {
+    "src": "/images/gedung-1.jpg",
+    "title": "Gedung SMA Negeri 1 Purworejo",
+    "kategori": "Sekolah",
+    "id": "77abbf55-31a4-4f44-b8b9-f270fc477ad3"
+  },
+  {
+    "src": "/images/gedung-2.jpg",
+    "title": "Lingkungan Sekolah",
+    "kategori": "Sekolah",
+    "id": "a9d24cc1-d3fa-4025-8bfc-7f92ddf8c3cd"
+  },
+  {
+    "src": "/images/gedung-3.jpg",
+    "title": "Fasilitas Sekolah",
+    "kategori": "Sekolah",
+    "id": "4e2027e7-0b67-4041-894a-7afc8099cc9b"
+  },
+  {
+    "src": "/images/gedung-4.jpg",
+    "title": "Area SMA Negeri 1 Purworejo",
+    "kategori": "Sekolah",
+    "id": "2eed1435-b718-4728-82c4-8a7aa5daa4d7"
+  },
+  {
+    "src": "/images/berita-1.jpg",
+    "title": "Peringatan Nuzulul Quran 2026",
+    "kategori": "Kegiatan",
+    "id": "061de914-af7b-404a-b538-981e3ac57113"
+  },
+  {
+    "src": "/images/berita-2.jpg",
+    "title": "Kunjungan Alumni",
+    "kategori": "Kegiatan",
+    "id": "7bd4d1e4-b932-4b11-8dfb-e9284f5ff2ed"
+  },
+  {
+    "src": "/images/berita-3.jpg",
+    "title": "Ganesha Voice dan Ekstrakurikuler",
+    "kategori": "Kegiatan",
+    "id": "e8082937-1ebb-4b53-ad4b-82599e6fdee6"
+  },
+  {
+    "src": "/images/berita-4.jpg",
+    "title": "Ziarah Makam HUT ke-71",
+    "kategori": "Kegiatan",
+    "id": "ff5a282f-86e7-4b44-a5f6-fb15d94ccf51"
+  },
+  {
+    "src": "/images/berita-5.jpg",
+    "title": "Penilaian Sumatif Akhir Tahun",
+    "kategori": "Akademik",
+    "id": "f00d6358-d013-46b0-8ade-19bf76a478cf"
+  },
+  {
+    "src": "/images/berita-6.jpg",
+    "title": "Earth Day With Ganesha",
+    "kategori": "Lingkungan",
+    "id": "8b7c4645-00d8-483b-bbc5-8d1da10d22f7"
+  }
+]

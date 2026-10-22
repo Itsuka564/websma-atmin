@@ -9,7 +9,7 @@ const statistik = [
     label: "Guru dan Tenaga Kependidikan",
     jumlah: "57",
     warna: "border-blue-500",
-    angka: "text-[#064ea2]",
+    angka: "text-blue-600",
   },
   {
     label: "Tenaga Kependidikan",
@@ -20,8 +20,8 @@ const statistik = [
   {
     label: "Siswa",
     jumlah: "440",
-    warna: "border-[#f3ea08]",
-    angka: "text-[#064ea2]",
+    warna: "border-yellow-400",
+    angka: "text-yellow-600",
   },
   {
     label: "Siswi",
@@ -69,14 +69,14 @@ function BeritaUtama({ berita }) {
           </div>
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#064ea2]/90 via-[#064ea2]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
 
-        <span className="absolute left-5 top-5 rounded-md bg-[#f3ea08] px-3 py-1.5 text-xs font-black uppercase tracking-wider text-[#064ea2]">
+        <span className="absolute left-5 top-5 rounded-md bg-yellow-400 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-slate-950">
           Berita Pilihan
         </span>
 
         <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-          <p className="mb-3 text-xs font-semibold text-[#f3ea08]">
+          <p className="mb-3 text-xs font-semibold text-yellow-300">
             {formatTanggal(berita.date)}
           </p>
 
@@ -88,7 +88,7 @@ function BeritaUtama({ berita }) {
             {berita.excerpt}
           </p>
 
-          <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#f3ea08] transition group-hover:gap-3">
+          <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-yellow-300 transition group-hover:gap-3">
             Baca selengkapnya <span aria-hidden="true">→</span>
           </span>
         </div>
@@ -103,7 +103,7 @@ function BeritaKecil({ berita }) {
   return (
     <Link
       href={`/berita/${berita.id}`}
-      className="group flex gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:border-[#f3ea08] hover:shadow-md sm:p-4"
+      className="group flex gap-4 rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition duration-300 hover:border-cyan-500 hover:shadow-md sm:p-4"
     >
       <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg bg-slate-200 sm:h-32 sm:w-36">
         {berita.image ? (
@@ -122,11 +122,11 @@ function BeritaKecil({ berita }) {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col justify-center">
-        <p className="text-xs font-semibold text-[#064ea2]">
+        <p className="text-xs font-semibold text-cyan-700">
           {formatTanggal(berita.date)}
         </p>
 
-        <h3 className="mt-2 line-clamp-3 text-sm font-extrabold leading-5 text-slate-900 transition group-hover:text-[#064ea2] sm:text-base sm:leading-6">
+        <h3 className="mt-2 line-clamp-3 text-sm font-extrabold leading-5 text-slate-900 transition group-hover:text-cyan-700 sm:text-base sm:leading-6">
           {berita.title}
         </h3>
 
@@ -160,16 +160,16 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="flex min-w-0 flex-1 items-center overflow-hidden bg-[#064ea2] py-4 text-white">
+        <div className="flex min-w-0 flex-1 items-center overflow-hidden bg-[#101D35] py-4 text-white">
           <div className="animate-[marquee_22s_linear_infinite] whitespace-nowrap px-5 text-sm font-medium sm:text-base">
             <span className="mx-8">
               Selamat datang di situs resmi SMA Negeri 1 Purworejo
             </span>
-            <span className="mx-8 text-[#f3ea08]">◆</span>
+            <span className="mx-8 text-yellow-400">◆</span>
             <span className="mx-8">
               Unggul, Berkarakter, Mendunia
             </span>
-            <span className="mx-8 text-[#f3ea08]">◆</span>
+            <span className="mx-8 text-yellow-400">◆</span>
             <span className="mx-8">
               Pantau informasi dan pengumuman sekolah melalui situs ini
             </span>
@@ -191,7 +191,7 @@ export default function Home() {
               />
             </div>
 
-            <h3 className="mt-3 text-center text-base font-extrabold text-[#064ea2]">
+            <h3 className="mt-3 text-center text-base font-extrabold text-[#101D35]">
               Cahyo Winarno, S.Pd., M.Pd.
             </h3>
 
@@ -201,7 +201,7 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#064ea2]">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-cyan-700">
               Sambutan Kepala Sekolah
             </p>
 
@@ -209,7 +209,7 @@ export default function Home() {
               Selamat Datang di Website SMA Negeri 1 Purworejo
             </h2>
 
-            <div className="my-4 h-1.5 w-16 rounded-full bg-[#f3ea08]" />
+            <div className="my-4 h-1.5 w-16 rounded-full bg-yellow-400" />
 
             <p className="text-sm font-semibold italic text-slate-700">
               Bismillahirrahmanirrahim. Assalamu’alaikum warahmatullahi
@@ -248,7 +248,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1440px] px-5 py-14 sm:px-8 lg:px-10">
           <div className="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#064ea2]">
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-cyan-700">
                 SMA Negeri 1 Purworejo
               </p>
 
@@ -293,7 +293,7 @@ export default function Home() {
           {/* PROFIL */}
           <div>
             <div className="mb-5">
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#064ea2]">
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-cyan-700">
                 Mengenal sekolah
               </p>
 
@@ -302,13 +302,13 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="overflow-hidden rounded-xl bg-[#064ea2] shadow-md">
+            <div className="overflow-hidden rounded-xl bg-[#101D35] shadow-md">
               <div className="relative flex min-h-56 flex-col justify-end overflow-hidden p-6 sm:min-h-64">
-                <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full border-[28px] border-[#f3ea08]/20" />
-                <div className="absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-[#f3ea08]/10" />
+                <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full border-[28px] border-cyan-500/20" />
+                <div className="absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-yellow-400/10" />
 
                 <div className="relative">
-                  <span className="inline-block rounded bg-[#f3ea08] px-3 py-1 text-xs font-black uppercase tracking-wider text-[#064ea2]">
+                  <span className="inline-block rounded bg-yellow-400 px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-950">
                     Unggul
                   </span>
 
@@ -334,7 +334,7 @@ export default function Home() {
 
                 <Link
                   href="/about"
-                  className="mt-4 inline-flex items-center gap-2 font-bold text-[#f3ea08] transition hover:text-white"
+                  className="mt-4 inline-flex items-center gap-2 font-bold text-yellow-300 transition hover:text-white"
                 >
                   Kenali sekolah kami <span aria-hidden="true">→</span>
                 </Link>
@@ -346,7 +346,7 @@ export default function Home() {
           <div>
             <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
               <div>
-                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#064ea2]">
+                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-cyan-700">
                   Kabar sekolah
                 </p>
 
@@ -357,7 +357,7 @@ export default function Home() {
 
               <Link
                 href="/berita"
-                className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-[#f3ea08] hover:text-[#064ea2]"
+                className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-cyan-600 hover:text-cyan-700"
               >
                 Semua berita <span aria-hidden="true">→</span>
               </Link>
@@ -383,12 +383,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="relative w-full overflow-hidden bg-[#064ea2]">
-        <div className="absolute -right-16 -top-24 h-64 w-64 rounded-full border-[40px] border-[#f3ea08]/10" />
+      <section className="relative w-full overflow-hidden bg-[#101D35]">
+        <div className="absolute -right-16 -top-24 h-64 w-64 rounded-full border-[40px] border-cyan-500/10" />
 
         <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-5 px-5 py-12 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#f3ea08]">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-yellow-400">
               Informasi sekolah
             </p>
 
@@ -404,7 +404,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/about"
-              className="rounded-md bg-[#f3ea08] px-5 py-3 text-sm font-extrabold text-[#064ea2] transition hover:bg-[#f3ea08]"
+              className="rounded-md bg-yellow-400 px-5 py-3 text-sm font-extrabold text-slate-950 transition hover:bg-yellow-300"
             >
               Profil Sekolah
             </Link>
